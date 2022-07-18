@@ -25,11 +25,7 @@ function solution(n) {
   console.log(totalFirst);
   console.log(totalSecond);
 
-  if (totalFirst === totalSecond) {
-    return true;
-  } else {
-    return false;
-  }
+  return totalFirst === totalSecond;
 }
 
 const input1 = 1230;
