@@ -37,21 +37,26 @@
 // [output] integer
 
 function solution(votes, k) {
-  let max = Math.max(...votes);
-  let index = "";
-  for (let i = 0; i < votes.length; i++) {
-    if (votes[i] + k > max) {
-      max = votes[i] + k;
-      index = i;
-    }
+  //   let max = Math.max(...votes);
+  //   let index = "";
+
+  let maxVotes = votes.map((v) => v + k).sort((a, b) => b - a);
+
+  if (maxVotes[0] === maxVotes[1]) {
+    return 0;
+  } else {
+    return votes.indexOf(maxVotes[0] - k);
   }
-  return index;
+  //   return maxVotes;
 }
 
 // const votes = [2, 3, 5, 2];
 // const k = 3;
 
-const votes = [1, 3, 3, 1, 1];
-const k = 1;
+// const votes = [1, 3, 3, 1, 1];
+// const k = 1;
+
+const votes = [3, 1, 1, 3, 1];
+const k = 2;
 
 console.log(solution(votes, k));
