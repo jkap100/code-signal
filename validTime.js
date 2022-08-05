@@ -23,11 +23,27 @@
 function solution(time) {
   const nums = time.split(":");
 
-  console.log(time);
+  //   if (Number(nums[0]) === 23 && Number(nums[1]) >= 0 && Number(nums[1]) <= 59)
+  //     return true;
+
+  if (
+    Number(nums[0]) >= 0 &&
+    Number(nums[0]) < 24 &&
+    Number(nums[1]) >= 0 &&
+    Number(nums[1] <= 59)
+  ) {
+    return true;
+  }
+  return false;
+  // console.log(nums);
 }
 
 const time = "13:58";
 const time1 = "25:51";
 const time2 = "02:76";
+const time3 = "23:59";
 
 console.log(solution(time));
+console.log(solution(time1));
+console.log(solution(time2));
+console.log(solution(time3));
