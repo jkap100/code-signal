@@ -20,22 +20,26 @@
 
 // true if the given representation is correct, false otherwise.
 
+// function solution(time) {
+//   const nums = time.split(":");
+
+//   //   if (Number(nums[0]) === 23 && Number(nums[1]) >= 0 && Number(nums[1]) <= 59)
+//   //     return true;
+
+//   if (
+//     Number(nums[0]) >= 0 &&
+//     Number(nums[0]) < 24 &&
+//     Number(nums[1]) >= 0 &&
+//     Number(nums[1] <= 59)
+//   ) {
+//     return true;
+//   }
+//   return false;
+//   // console.log(nums);
+// }
+
 function solution(time) {
-  const nums = time.split(":");
-
-  //   if (Number(nums[0]) === 23 && Number(nums[1]) >= 0 && Number(nums[1]) <= 59)
-  //     return true;
-
-  if (
-    Number(nums[0]) >= 0 &&
-    Number(nums[0]) < 24 &&
-    Number(nums[1]) >= 0 &&
-    Number(nums[1] <= 59)
-  ) {
-    return true;
-  }
-  return false;
-  // console.log(nums);
+  return new Date("1900-01-01 " + time) != "Invalid Date" && time != "24:00";
 }
 
 const time = "13:58";
