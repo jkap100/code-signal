@@ -18,16 +18,28 @@
 
 // The longest word from text. It's guaranteed that there is a unique output.
 
-function solution(text) {
-  let max = "";
-  let arr = text.split("");
+// function solution(text) {
+//   let max = "";
+//   let arr = text.split(" ");
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length > max.length) {
-      max = arr[i];
-    }
-  }
-  return max;
+//   for (let i = 0; i < arr.length; i++) {
+//     let word = arr[i].replace(/[^a-z0-9]/gi, "");
+
+//     if (word.length > max.length) {
+//       max = word;
+//     }
+//   }
+//   return max;
+// }
+
+function solution(text) {
+  let arr = text.match(/[a-z]+/gi);
+
+  let sorted = arr.sort((a, b) => b.length - a.length);
+
+  console.log(sorted);
+
+  return sorted[0];
 }
 
 const input = "Ready, steady, go!"; //-> steady
