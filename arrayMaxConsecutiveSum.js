@@ -48,6 +48,8 @@ function solution(inputArray, k) {
 }
 
 const input = [2, 3, 5, 1, 6]; //-> 8
+const input1 = [-2, 2, 5, -11, 6]; //-> 7
+
 const k = 2;
 
 console.log(solution(input, k));
