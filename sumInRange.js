@@ -33,7 +33,33 @@
 
 // An integer that is the sum of all of the sums gotten from querying nums, taken modulo 109 + 7.
 
-function solution(nums, queries) {}
+let prefix = new Array(1000, 0);
+
+console.log(prefix);
+
+const preCompute = (nums) => {
+  let n = nums.length;
+  prefix[0] = nums[0];
+
+  for (let i = 1; i < n; i++) {
+    prefix[i] = nums[i] + prefix[i - 1];
+  }
+};
+
+function solution(nums, queries) {
+  preCompute(nums);
+  let m = Math.pow(10, 9) + 7;
+  let accum = 0;
+
+  for (let i = 0; i < queries.length; i++) {
+    if (queries[i][0] === 0) {
+      accum += prefix[queries[i][1]];
+    } else {
+      accum += prefix[[i][1] - prefix[i][0] - 1];
+    }
+  }
+  return accum < 0 ? ((accum % m) + m) % m : accum % m;
+}
 
 const nums = [3, 0, -2, 6, -3, 2];
 const queries = [
