@@ -55,7 +55,7 @@ function solution(nums, queries) {
     if (queries[i][0] === 0) {
       accum += prefix[queries[i][1]];
     } else {
-      accum += prefix[[i][1] - prefix[i][0] - 1];
+      accum += prefix[queries[i][1]] - prefix[queries[i][0] - 1];
     }
   }
   return accum < 0 ? ((accum % m) + m) % m : accum % m;
