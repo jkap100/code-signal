@@ -34,12 +34,25 @@
 
 // true if there are two elements from a and b which add up to v, and false otherwise.
 
+//*brute force
+// function solution(a, b, v) {
+//   for (let i = 0; i < a.length; i++) {
+//     for (let j = 0; j < b.length; j++) {
+//       if (b[j] + a[i] === v) {
+//         return true;
+//       }
+//     }
+//   }
+//   return false;
+// }
+
 function solution(a, b, v) {
+  let bSet = new Set(b);
+  console.log(bSet);
+
   for (let i = 0; i < a.length; i++) {
-    for (let j = 0; j < b.length; j++) {
-      if (b[j] + a[i] === v) {
-        return true;
-      }
+    if (bSet.has(v - a[i])) {
+      return true;
     }
   }
   return false;
